@@ -11,15 +11,20 @@ public class Alert {
 	}
 
 	public String getMessage() {
-		String[] components = line.split("[**]");
+		/*String[] components = line.split("[**]");
 		//TODO complete
-		return components[2];
+		return components[2];*/
+		return line.substring(line.indexOf("[**]")+5);
 	}
 	
 	public String getDate() {
 		String time = main.utils.Dates.getTimestampFrom(line);
 		Calendar cal = main.utils.Dates.toCal(time);
 		return main.utils.Dates.addNHoursToTime(cal, -2);
+	}
+	
+	public String getAlert(){
+		return line;
 	}
 	
 }
